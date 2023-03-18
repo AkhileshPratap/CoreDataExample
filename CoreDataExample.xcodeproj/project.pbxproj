@@ -17,9 +17,11 @@
 		09C467D929C493BA00B07211 /* CoreDataExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C467D829C493BA00B07211 /* CoreDataExampleTests.swift */; };
 		09C467E329C493BA00B07211 /* CoreDataExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C467E229C493BA00B07211 /* CoreDataExampleUITests.swift */; };
 		09C467E529C493BA00B07211 /* CoreDataExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C467E429C493BA00B07211 /* CoreDataExampleUITestsLaunchTests.swift */; };
-		09C467F329C4945D00B07211 /* Employee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C467F129C4945D00B07211 /* Employee+CoreDataClass.swift */; };
-		09C467F429C4945D00B07211 /* Employee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C467F229C4945D00B07211 /* Employee+CoreDataProperties.swift */; };
 		09C467F629C58F8600B07211 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C467F529C58F8600B07211 /* PersistentStorage.swift */; };
+		09C467FF29C5999100B07211 /* EmployeeDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C467FE29C5999100B07211 /* EmployeeDataRepository.swift */; };
+		09C4680329C59DA900B07211 /* CDEmployee+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4680129C59DA900B07211 /* CDEmployee+CoreDataClass.swift */; };
+		09C4680429C59DA900B07211 /* CDEmployee+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4680229C59DA900B07211 /* CDEmployee+CoreDataProperties.swift */; };
+		09C4680629C5A43000B07211 /* EmployeeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C4680529C5A43000B07211 /* EmployeeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +56,11 @@
 		09C467DE29C493BA00B07211 /* CoreDataExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreDataExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09C467E229C493BA00B07211 /* CoreDataExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExampleUITests.swift; sourceTree = "<group>"; };
 		09C467E429C493BA00B07211 /* CoreDataExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		09C467F129C4945D00B07211 /* Employee+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Employee+CoreDataClass.swift"; sourceTree = "<group>"; };
-		09C467F229C4945D00B07211 /* Employee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Employee+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		09C467F529C58F8600B07211 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
+		09C467FE29C5999100B07211 /* EmployeeDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDataRepository.swift; sourceTree = "<group>"; };
+		09C4680129C59DA900B07211 /* CDEmployee+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDEmployee+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		09C4680229C59DA900B07211 /* CDEmployee+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDEmployee+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		09C4680529C5A43000B07211 /* EmployeeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,16 +111,16 @@
 		09C467BD29C493B900B07211 /* CoreDataExample */ = {
 			isa = PBXGroup;
 			children = (
-				09C467F129C4945D00B07211 /* Employee+CoreDataClass.swift */,
-				09C467F229C4945D00B07211 /* Employee+CoreDataProperties.swift */,
 				09C467BE29C493B900B07211 /* AppDelegate.swift */,
-				09C467F529C58F8600B07211 /* PersistentStorage.swift */,
 				09C467C029C493B900B07211 /* SceneDelegate.swift */,
-				09C467C229C493B900B07211 /* ViewController.swift */,
+				09C4680029C5999A00B07211 /* Repositories */,
+				09C467F929C5990200B07211 /* Managers */,
+				09C467F829C598F200B07211 /* Controllers */,
 				09C467C429C493B900B07211 /* Main.storyboard */,
 				09C467CA29C493BA00B07211 /* Assets.xcassets */,
 				09C467CC29C493BA00B07211 /* LaunchScreen.storyboard */,
 				09C467CF29C493BA00B07211 /* Info.plist */,
+				09C467F729C598DE00B07211 /* CoreDataSupportFiles */,
 				09C467C729C493B900B07211 /* CoreDataExample.xcdatamodeld */,
 			);
 			path = CoreDataExample;
@@ -137,6 +141,40 @@
 				09C467E429C493BA00B07211 /* CoreDataExampleUITestsLaunchTests.swift */,
 			);
 			path = CoreDataExampleUITests;
+			sourceTree = "<group>";
+		};
+		09C467F729C598DE00B07211 /* CoreDataSupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				09C4680129C59DA900B07211 /* CDEmployee+CoreDataClass.swift */,
+				09C4680229C59DA900B07211 /* CDEmployee+CoreDataProperties.swift */,
+			);
+			path = CoreDataSupportFiles;
+			sourceTree = "<group>";
+		};
+		09C467F829C598F200B07211 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				09C467C229C493B900B07211 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		09C467F929C5990200B07211 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				09C467F529C58F8600B07211 /* PersistentStorage.swift */,
+				09C4680529C5A43000B07211 /* EmployeeManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		09C4680029C5999A00B07211 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				09C467FE29C5999100B07211 /* EmployeeDataRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,11 +308,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09C4680629C5A43000B07211 /* EmployeeManager.swift in Sources */,
 				09C467C329C493B900B07211 /* ViewController.swift in Sources */,
-				09C467F429C4945D00B07211 /* Employee+CoreDataProperties.swift in Sources */,
+				09C4680329C59DA900B07211 /* CDEmployee+CoreDataClass.swift in Sources */,
+				09C467FF29C5999100B07211 /* EmployeeDataRepository.swift in Sources */,
+				09C4680429C59DA900B07211 /* CDEmployee+CoreDataProperties.swift in Sources */,
 				09C467BF29C493B900B07211 /* AppDelegate.swift in Sources */,
 				09C467C129C493B900B07211 /* SceneDelegate.swift in Sources */,
-				09C467F329C4945D00B07211 /* Employee+CoreDataClass.swift in Sources */,
 				09C467C929C493B900B07211 /* CoreDataExample.xcdatamodeld in Sources */,
 				09C467F629C58F8600B07211 /* PersistentStorage.swift in Sources */,
 			);
